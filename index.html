@@ -3,37 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ParkSpot — Rent a spot. List a spot. In seconds.</title>
-<meta name="description" content="ParkSpot is a peer-to-peer parking marketplace. Drivers book private driveways, garages and lots instantly. Hosts turn unused space into income. Launching in Ljubljana.">
-<meta name="theme-color" content="#1D2540">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23A8573A'/%3E%3Cpath fill='%23fff' d='M20 8c-4.4 0-8 3.4-8 7.7 0 5.6 6.4 11 7.3 11.7a1 1 0 0 0 1.4 0c.9-.7 7.3-6.1 7.3-11.7 0-4.3-3.6-7.7-8-7.7zm0 10.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z'/%3E%3C/svg%3E">
+<title>ParkSpot — Book a private parking spot before you arrive</title>
+<meta name="description" content="ParkSpot lets drivers book private driveways, garages and lots by the hour, and lets hosts earn from space that sits empty. Launching in Ljubljana.">
+<meta name="theme-color" content="#F6F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230C3B2E'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='10.8' stroke-linecap='round'%3E%3Ccircle cx='50' cy='42' r='20'/%3E%3Cpath d='M30 42V80'/%3E%3C/g%3E%3Ccircle cx='50' cy='42' r='6.1' fill='%23FFBA00'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="grain" aria-hidden="true"></div>
+<a href="#main" class="skip-link">Skip to content</a>
 
 <nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#top" class="brand">
+    <a href="#top" class="brand" aria-label="ParkSpot home">
       <span class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 6.4 11.2 7.3 12.02a1 1 0 0 0 1.4 0C13.6 21.2 20 15.25 20 10c0-4.42-3.58-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#0C3B2E"/><g fill="none" stroke="#fff" stroke-width="10.8" stroke-linecap="round"><circle cx="50" cy="42" r="20"/><path d="M30 42V80"/></g><circle cx="50" cy="42" r="6.1" fill="#FFBA00"/></svg>
       </span>
-      ParkSpot
+      <span class="brand-word">Park<span>Spot</span></span>
     </a>
+
     <div class="nav-links">
-      <a href="#features">Features</a>
       <a href="#how-it-works">How it works</a>
-      <a href="#hosts">For hosts</a>
-      <a href="#story">Our story</a>
+      <a href="#features">Features</a>
+      <a href="#hosts">Earn as a host</a>
+      <a href="#faq">FAQ</a>
     </div>
+
     <div class="nav-cta">
-      <a href="#waitlist" class="btn btn-secondary btn-small">List Your Space</a>
-      <a href="#waitlist" class="btn btn-primary btn-small">Get Early Access</a>
-      <button class="nav-burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <a href="#hosts" class="btn btn-ghost btn-sm">List your space</a>
+      <a href="#waitlist" class="btn btn-primary btn-sm">Get early access</a>
+      <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -41,345 +43,449 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#features">Features</a>
   <a href="#how-it-works">How it works</a>
-  <a href="#hosts">For hosts</a>
-  <a href="#story">Our story</a>
-  <a href="#waitlist" class="btn btn-primary">Get Early Access</a>
+  <a href="#features">Features</a>
+  <a href="#hosts">Earn as a host</a>
+  <a href="#faq">FAQ</a>
+  <a href="#waitlist" class="btn btn-primary">Get early access</a>
 </div>
 
-<main id="top">
+<main id="main">
+<div id="top"></div>
 
-  <!-- HERO -->
+  <!-- ============ HERO ============ -->
   <header class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy reveal">
-        <span class="pill"><span class="dot"></span> Now launching in Ljubljana</span>
-        <h1>Find your spot.<br><em>In seconds.</em></h1>
-        <p class="lead">Private driveways and garages, booked instantly. Own a space? Turn it into income while you sleep.</p>
-        <div class="hero-cta-row">
-          <a href="#waitlist" class="btn btn-primary">Find Parking →</a>
-          <a href="#waitlist" class="btn btn-secondary">List Your Space</a>
-        </div>
-        <div class="hero-trust">
-          <div class="hero-trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Verified hosts &amp; drivers
-          </div>
-          <div class="hero-trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
-            Instant booking
-          </div>
-          <div class="hero-trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-            No surge, ever
-          </div>
-        </div>
-      </div>
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-mesh" aria-hidden="true"></div>
 
-      <div class="hero-visual reveal" id="heroVisual">
-        <div class="glow glow-accent"></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="pill"><span class="dot"></span> Launching first in Ljubljana</span>
+            <h1>Park without<br>the hunt.</h1>
+            <p class="lead">
+              Book a private driveway, garage or lot a short walk from where
+              you're actually going — reserved before you set off, from
+              <b>&euro;1.20&nbsp;an hour</b>. Got one sitting empty? Rent it out.
+            </p>
 
-        <img
-          class="phone-shot"
-          id="phoneMockup"
-          src="assets/screen-explore.png"
-          alt="ParkSpot app showing available parking spots and live prices on a map of Ljubljana Old Town"
-          width="900" height="1780">
+            <div class="hero-cta-row">
+              <a href="#waitlist" class="btn btn-primary">Get early access</a>
+              <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
+            </div>
 
-        <div class="float-card float-earn">
-          <p class="float-label">This month</p>
-          <p class="float-value">€612</p>
-          <span class="trend-up">↑ High demand</span>
+            <div class="social-proof">
+              <span class="avatars" aria-hidden="true">
+                <i></i><i></i><i></i><i></i>
+              </span>
+              <p><b data-count-to="2400" data-count-suffix="+">2,400+</b> drivers and hosts already on the Ljubljana waitlist</p>
+            </div>
+          </div>
+
+          <div class="hero-visual" id="heroVisual">
+            <img
+              class="phone-shot"
+              id="phoneMockup"
+              src="assets/screen-explore.png"
+              alt="The ParkSpot app showing nearby private parking spots and hourly prices on a map of the old town"
+              width="900" height="1780" fetchpriority="high">
+
+            <div class="chip chip-confirm">
+              <span class="chip-icon chip-icon-ok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <span class="chip-text">Spot confirmed<small>Trubarjeva 12 &middot; 4 min walk</small></span>
+            </div>
+
+            <div class="chip chip-price">
+              <span class="chip-text"><b>&euro;1.60</b><small>per hour &middot; covered</small></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <a href="#how-it-works" class="scroll-cue" aria-label="Scroll to learn more">
-      <span></span>
-    </a>
   </header>
 
-  <!-- HOW IT WORKS -->
+  <!-- ============ PROBLEM / NUMBERS ============ -->
+  <section id="why">
+    <div class="container">
+      <div class="band-head reveal">
+        <h2>Circling for a space is a tax on your day.</h2>
+        <p>
+          In a city centre built long before cars, the spot you need is usually
+          behind a gate, not on the street. ParkSpot opens those gates.
+        </p>
+      </div>
+
+      <div class="stat-row reveal-stagger">
+        <div class="stat">
+          <span class="stat-num" data-count-to="21" data-count-suffix=" min">21 min</span>
+          <h3>Lost per trip</h3>
+          <p>Typical time spent hunting for a space in a dense city centre, then walking back from wherever you gave up.</p>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count-to="30" data-count-prefix="&lt;" data-count-suffix=" sec">&lt;30 sec</span>
+          <h3>To book instead</h3>
+          <p>Open the map, pick a spot, confirm. It's held for you before you turn the key.</p>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count-to="180" data-count-prefix="&euro;" data-count-suffix="/mo">&euro;180/mo</span>
+          <h3>A driveway can earn</h3>
+          <p>What an average central Ljubljana driveway brings in when it's rented while the owner is at work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
   <section id="how-it-works">
     <div class="container">
       <div class="section-head center reveal">
         <span class="eyebrow">How it works</span>
-        <h2>One marketplace. <em>Two sides.</em></h2>
+        <h2>One app. Both sides of the gate.</h2>
+        <p>Whether you need a space or have one going to waste, it takes about two minutes to get going.</p>
       </div>
 
-      <div class="tracks">
-        <div class="track track-driver">
-          <div class="track-head reveal">
-            <span class="track-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5-2V4l5 2 6-2 5 2v14l-5-2-6 2z"/><path d="M9 6v14M15 4v14"/></svg>
-            </span>
-            <div>
-              <h3>For Drivers</h3>
-              <span>Commuters, visitors, anyone tired of circling</span>
-            </div>
-          </div>
-          <img class="track-shot reveal" src="assets/screen-booking.png" alt="ParkSpot app showing an active parking session with navigate and photo check-in" loading="lazy" width="640" height="1474">
-          <div class="step-list reveal-stagger">
-            <div class="step">
-              <span class="step-num">01</span>
-              <div class="step-body">
-                <h4>Search the map</h4>
-                <p>Filter by cover, EV &amp; CCTV.</p>
-              </div>
-            </div>
-            <div class="step">
-              <span class="step-num">02</span>
-              <div class="step-body">
-                <h4>Book instantly</h4>
-                <p>Hourly to weekly. Instant confirm.</p>
-              </div>
-            </div>
-            <div class="step">
-              <span class="step-num">03</span>
-              <div class="step-body">
-                <h4>Park &amp; go</h4>
-                <p>QR unlock, photo check-in.</p>
-              </div>
-            </div>
-          </div>
+      <div class="tabs reveal" id="tabs">
+        <div class="tab-switch" role="tablist" aria-label="Choose your side">
+          <button role="tab" id="tab-driver" aria-controls="panel-driver" aria-selected="true" class="active">I need parking</button>
+          <button role="tab" id="tab-host" aria-controls="panel-host" aria-selected="false">I have a space</button>
         </div>
 
-        <div class="track track-host">
-          <div class="track-head reveal">
-            <span class="track-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
-            </span>
-            <div>
-              <h3>For Hosts</h3>
-              <span>Driveways, garages and lots sitting empty</span>
-            </div>
-          </div>
-          <img class="track-shot reveal" src="assets/screen-host.png" alt="ParkSpot host dashboard showing earnings, demand and booking requests" loading="lazy" width="640" height="1350">
-          <div class="step-list reveal-stagger">
-            <div class="step">
+        <div class="tab-panel active" id="panel-driver" role="tabpanel" aria-labelledby="tab-driver">
+          <div class="steps">
+            <article class="step-card">
               <span class="step-num">01</span>
-              <div class="step-body">
-                <h4>List in minutes</h4>
-                <p>Pin it, photo it, price it.</p>
-              </div>
-            </div>
-            <div class="step">
+              <h3>Search where you're headed</h3>
+              <p>Drop a pin on your destination and see every private space around it, with the real hourly price up front. Filter for covered, EV charging, CCTV or a bay big enough for a van.</p>
+            </article>
+            <article class="step-card">
               <span class="step-num">02</span>
-              <div class="step-body">
-                <h4>Get discovered</h4>
-                <p>Demand insights set your price.</p>
-              </div>
-            </div>
-            <div class="step">
+              <h3>Book it before you leave</h3>
+              <p>An hour, a day, or every weekday this month. Instant-book spaces are confirmed on the spot, so the space is legally yours when you arrive.</p>
+            </article>
+            <article class="step-card">
               <span class="step-num">03</span>
-              <div class="step-body">
-                <h4>Get paid</h4>
-                <p>Approve, sync your calendar.</p>
-              </div>
-            </div>
+              <h3>Drive in and get on with it</h3>
+              <p>Turn-by-turn to the entrance, then a QR code or gate code to get in. A timestamped photo at check-in protects you if anything's disputed later.</p>
+            </article>
           </div>
+          <img class="tab-shot" src="assets/screen-booking.png" alt="An active ParkSpot session showing the time remaining, a navigate button and the option to extend" loading="lazy" width="640" height="1474">
+        </div>
+
+        <div class="tab-panel" id="panel-host" role="tabpanel" aria-labelledby="tab-host" hidden>
+          <div class="steps">
+            <article class="step-card">
+              <span class="step-num">01</span>
+              <h3>List the space in minutes</h3>
+              <p>Pin the entrance, add a few photos and say when it's free. If you're out from 8 to 5, that's eight billable hours a day you weren't using.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-num">02</span>
+              <h3>Price it with real demand</h3>
+              <p>We show you what nearby spaces charge and when your street gets busy — match days, market mornings, the evening theatre rush — so you're not guessing.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-num">03</span>
+              <h3>Approve, or let it run itself</h3>
+              <p>Accept requests one by one, or switch on instant-book and sync your calendar so the space blocks itself when you need the car at home. Payouts land weekly.</p>
+            </article>
+          </div>
+          <img class="tab-shot" src="assets/screen-host.png" alt="The ParkSpot host dashboard showing monthly earnings, demand and incoming booking requests" loading="lazy" width="640" height="1350">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
+  <!-- ============ FEATURES ============ -->
   <section id="features">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Everything, built in</span>
-        <h2>Designed for how parking actually happens</h2>
+        <span class="eyebrow">What's in the app</span>
+        <h2>Built around what actually goes wrong when you park.</h2>
+        <p>Every feature here exists because something about parking is annoying. None of it is decoration.</p>
       </div>
 
-      <div class="feature-grid reveal-stagger">
-        <div class="feature-card">
-          <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5-2V4l5 2 6-2 5 2v14l-5-2-6 2z"/><path d="M9 6v14M15 4v14"/></svg></span>
-          <h3>Map search</h3>
-          <p>Covered, EV charging, CCTV, vehicle size.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="15" y="15" width="2.5" height="2.5"/><rect x="19" y="15" width="2.5" height="2.5"/><rect x="15" y="19" width="2.5" height="2.5"/><rect x="19" y="19" width="2.5" height="2.5"/></svg></span>
-          <h3>Contactless access</h3>
-          <p>QR or access code. No key handoffs.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="13" r="3.4"/></svg></span>
-          <h3>Photo check-in</h3>
-          <p>Timestamped photos protect both sides.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
-          <h3>Live session</h3>
-          <p>Countdown, directions, one-tap Smart Extend.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.8a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5z"/></svg></span>
-          <h3>Split the cost</h3>
-          <p>One link, split with friends.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span>
-          <h3>Verified community</h3>
-          <p>ID and driver verification, both sides.</p>
-        </div>
+      <div class="bento reveal-stagger">
+        <article class="bento-card bento-banner">
+          <div class="bento-copy">
+            <span class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20l-5-2V4l5 2 6-2 5 2v14l-5-2-6 2z"/><path d="M9 6v14M15 4v14"/></svg>
+            </span>
+            <h3>A map of spaces you can't see from the street</h3>
+            <p>Private driveways, residents' garages and small courtyard lots — the ones behind gates. Prices are per hour and shown before you tap, so there's nothing to work out at a barrier.</p>
+          </div>
+          <img src="assets/screen-explore.png" alt="Map view in the ParkSpot app with price markers on nearby private spaces" loading="lazy" width="640" height="1266">
+        </article>
+
+        <article class="bento-card">
+          <span class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="15" y="15" width="2.5" height="2.5"/><rect x="19" y="15" width="2.5" height="2.5"/><rect x="15" y="19" width="2.5" height="2.5"/><rect x="19" y="19" width="2.5" height="2.5"/></svg>
+          </span>
+          <h3>Get in without meeting anyone</h3>
+          <p>A QR code or gate code arrives with your booking. No waiting around for someone to hand over a key or a fob.</p>
+        </article>
+
+        <article class="bento-card">
+          <span class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          </span>
+          <h3>Running late? Extend from the car</h3>
+          <p>One tap adds time if the space is still free after you. No sprinting back to feed a meter.</p>
+        </article>
+
+        <article class="bento-card">
+          <span class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="13" r="3.4"/></svg>
+          </span>
+          <h3>Photos settle arguments</h3>
+          <p>Both sides photograph the bay at check-in and check-out. Timestamped, stored, and the only thing support needs to look at.</p>
+        </article>
+
+        <article class="bento-card bento-tint">
+          <span class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+          </span>
+          <h3>Everyone is a verified name</h3>
+          <p>ID and licence checks on both sides before a first booking. You know who's parking on your drive, and whose drive you're on.</p>
+        </article>
+
+        <article class="bento-card bento-banner bento-flip">
+          <div class="bento-copy">
+            <span class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.8a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5z"/></svg>
+            </span>
+            <h3>Message the host, split the bill</h3>
+            <p>Ask which gate, tell them you're ten minutes out, or send one link to split a long stay with whoever's in the car. It all stays attached to the booking.</p>
+          </div>
+          <img src="assets/screen-messages.png" alt="Chat in the ParkSpot app, arranging a gate code and arrival time with a host" loading="lazy" width="640" height="1301">
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- SCREENS -->
+  <!-- ============ SCREENS ============ -->
   <section id="screens">
     <div class="container">
       <div class="section-head center reveal">
         <span class="eyebrow">Inside the app</span>
-        <h2>A screen for every <em>moment.</em></h2>
+        <h2>A screen for each part of the trip.</h2>
       </div>
 
       <div class="screens-grid reveal-stagger">
-        <div class="screen-item">
-          <img src="assets/screen-booking.png" alt="Active parking session screen with a countdown timer and navigate button" width="640" height="1474" loading="lazy">
-          <h3>Live sessions</h3>
-          <p>Countdown, directions, extend in one tap.</p>
-        </div>
-        <div class="screen-item">
-          <img src="assets/screen-messages.png" alt="Chat screen coordinating a gate code and arrival time with a host" width="640" height="1301" loading="lazy">
-          <h3>Direct messages</h3>
-          <p>Sort out gate codes and arrival times instantly.</p>
-        </div>
-        <div class="screen-item">
-          <img src="assets/screen-profile.png" alt="Profile screen showing trips, savings, vehicles and payment methods" width="640" height="1369" loading="lazy">
-          <h3>Your profile</h3>
-          <p>Vehicles, payment methods, trip history — all in one place.</p>
-        </div>
-        <div class="screen-item">
-          <img src="assets/screen-host.png" alt="Host dashboard showing monthly earnings, occupancy and booking requests" width="640" height="1350" loading="lazy">
-          <h3>Host dashboard</h3>
-          <p>Earnings, demand, and requests at a glance.</p>
-        </div>
+        <figure class="screen-item">
+          <img src="assets/screen-booking.png" alt="Live session screen with remaining time, directions and an extend button" width="640" height="1474" loading="lazy">
+          <figcaption>
+            <h3>While you're parked</h3>
+            <p>Time left, walking directions back, and one tap to add an hour.</p>
+          </figcaption>
+        </figure>
+        <figure class="screen-item">
+          <img src="assets/screen-host.png" alt="Host dashboard showing earnings, occupancy and pending requests" width="640" height="1350" loading="lazy">
+          <figcaption>
+            <h3>If you're hosting</h3>
+            <p>What you've earned, what's booked, and who's asking.</p>
+          </figcaption>
+        </figure>
+        <figure class="screen-item">
+          <img src="assets/screen-messages.png" alt="Messages screen showing a conversation with a host about gate access" width="640" height="1301" loading="lazy">
+          <figcaption>
+            <h3>Talking to your host</h3>
+            <p>Gate codes, arrival times, and where exactly the bay is.</p>
+          </figcaption>
+        </figure>
+        <figure class="screen-item">
+          <img src="assets/screen-profile.png" alt="Profile screen listing saved vehicles, payment methods and past trips" width="640" height="1369" loading="lazy">
+          <figcaption>
+            <h3>Your details, once</h3>
+            <p>Vehicles, cards and history — so the next booking is two taps.</p>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- HOSTS -->
+  <!-- ============ HOSTS ============ -->
   <section id="hosts">
-    <div class="container split">
-      <div class="split-copy reveal">
-        <span class="eyebrow">For hosts</span>
-        <h2>Your driveway, working while you're <em>not.</em></h2>
-        <ul class="check-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            <span><b>Earnings, at a glance.</b></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            <span><b>Demand forecasts</b> — price it right.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            <span><b>One-tap approve or decline.</b></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            <span><b>Google Calendar sync.</b></span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="split-visual reveal">
-        <div class="dash-card">
-          <div class="dash-row">
-            <div>
-              <p class="label">This month's earnings</p>
-              <p class="value">€612</p>
-            </div>
-            <span class="badge-demand">High demand</span>
-          </div>
-          <div class="bars">
-            <div class="bar" style="height:35%"></div>
-            <div class="bar" style="height:55%"></div>
-            <div class="bar bar-peak" style="height:95%"></div>
-            <div class="bar" style="height:62%"></div>
-            <div class="bar bar-peak" style="height:88%"></div>
-            <div class="bar" style="height:40%"></div>
-            <div class="bar" style="height:70%"></div>
-          </div>
-          <div class="dash-requests">
-            <div class="req-row">
-              <span class="req-who"><span class="req-avatar"></span> Ana M. · Weekend, 2 days</span>
-              <span class="req-actions">
-                <button class="req-approve" aria-label="Approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-                <button class="req-decline" aria-label="Decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-              </span>
-            </div>
-            <div class="req-row">
-              <span class="req-who"><span class="req-avatar"></span> Marko P. · Tonight, 4 hrs</span>
-              <span class="req-actions">
-                <button class="req-approve" aria-label="Approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-                <button class="req-decline" aria-label="Decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STORY -->
-  <section id="story">
     <div class="container">
-      <div class="story reveal">
-        <div class="story-grid">
-          <div>
-            <span class="eyebrow">Our story</span>
-            <h2>Why we started in <em>Ljubljana</em></h2>
-            <p>Old Town was built for walking, not cars. ParkSpot turns that scarcity into opportunity — locals list a driveway in minutes, visitors book a guaranteed spot before they arrive. Fewer cars circling the centre. Less fuel burned looking for a spot that was never there.</p>
-            <a href="#waitlist" class="link-arrow">Join the Ljubljana launch →</a>
-          </div>
-          <div>
-            <div class="skyline">
-              <div style="height:38%"></div>
-              <div style="height:62%"></div>
-              <div style="height:45%"></div>
-              <div style="height:80%"></div>
-              <div style="height:52%"></div>
-              <div style="height:70%"></div>
-              <div style="height:40%"></div>
-              <div style="height:58%"></div>
-              <div style="height:85%"></div>
-              <div style="height:48%"></div>
-              <div style="height:65%"></div>
-              <div style="height:36%"></div>
+      <div class="host-card reveal">
+        <div class="host-copy">
+          <span class="eyebrow">Earn as a host</span>
+          <h2>The space outside your house is already an asset.</h2>
+          <p>
+            If your car is at work from eight until five, your driveway is empty
+            for the exact hours people are desperate to park near you. Listing it
+            takes a few minutes and you keep control of when it's available.
+          </p>
+
+          <ul class="check-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span><b>Weekly payouts</b> straight to your bank — no chasing anyone.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span><b>You pick the hours.</b> Block the space any time you need it back.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span><b>Every driver is verified</b> with ID and a licence before they book.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span><b>Calendar sync</b> so a booking can never clash with your own plans.</span>
+            </li>
+          </ul>
+
+          <a href="#waitlist" class="btn btn-primary">List your space</a>
+        </div>
+
+        <div class="host-visual">
+          <div class="dash-card">
+            <div class="dash-row">
+              <div>
+                <p class="dash-label">Earnings this month</p>
+                <p class="dash-value" data-count-to="612" data-count-prefix="&euro;">&euro;612</p>
+              </div>
+              <span class="badge">High demand</span>
             </div>
+
+            <div class="bars" aria-hidden="true">
+              <div class="bar" style="--h:35%"></div>
+              <div class="bar" style="--h:55%"></div>
+              <div class="bar bar-peak" style="--h:95%"></div>
+              <div class="bar" style="--h:62%"></div>
+              <div class="bar bar-peak" style="--h:88%"></div>
+              <div class="bar" style="--h:40%"></div>
+              <div class="bar" style="--h:70%"></div>
+            </div>
+            <p class="dash-caption">Mon &ndash; Sun &middot; match nights drive your two peaks</p>
+
+            <div class="dash-requests">
+              <div class="req-row">
+                <span class="req-who"><span class="req-avatar"></span> Ana M. &middot; Weekend, 2 days</span>
+                <span class="req-actions">
+                  <button class="req-approve" aria-label="Approve Ana M."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button>
+                  <button class="req-decline" aria-label="Decline Ana M."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+                </span>
+              </div>
+              <div class="req-row">
+                <span class="req-who"><span class="req-avatar req-avatar-b"></span> Marko P. &middot; Tonight, 4 hrs</span>
+                <span class="req-actions">
+                  <button class="req-approve" aria-label="Approve Marko P."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button>
+                  <button class="req-decline" aria-label="Decline Marko P."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <p class="host-note">Illustrative dashboard &mdash; your figures depend on your street and hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="faq-intro reveal">
+          <span class="eyebrow">Questions</span>
+          <h2>The things people ask before their first booking.</h2>
+          <p>Still unsure about something? Write to us at <a href="mailto:hello@parkspot.app">hello@parkspot.app</a> and a person will answer.</p>
+        </div>
+
+        <div class="faq-list reveal" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              How is this different from a public garage?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>A garage sells you entry and hopes there's room. ParkSpot sells you one specific bay that nobody else can take, usually closer to where you're going and typically cheaper per hour. You also know the exact price before you drive, rather than reading a tariff board at a barrier.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What if the space isn't there when I arrive?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>Report it in the app and you're refunded in full, immediately. We'll also find and book you the nearest available alternative and cover the difference in price. Hosts who repeatedly let this happen are removed.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Is my car safe on a stranger's property?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>Every host is ID-verified before a space goes live, and you can see their history and reviews. Check-in and check-out photos are timestamped on both sides, so the condition your car arrived in is on record. Many listings are behind a locked gate, which is more than a street space offers.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What does it cost, honestly?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>The host sets the hourly rate, typically between &euro;1.20 and &euro;2.50 in central Ljubljana. The price you see is the price you pay — no booking fee bolted on at checkout, no surge pricing when it rains. ParkSpot takes a service fee from the host's side.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Can I cancel?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>Free cancellation up to an hour before your booking starts. Inside that hour the host keeps the first hour's rate, because they've turned other people away to hold it for you.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              I'm a host — what are my obligations?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>Keep the space clear and accessible during the hours you've marked as available. That's it. You're never required to be home, meet anyone, or hand over keys — access is a code or a QR scan. You can block dates whenever you like.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              When can I actually use it?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>We're onboarding hosts in Ljubljana now and opening to drivers once there are enough spaces for the app to be genuinely useful. Join the waitlist and you'll get access in the first wave, along with the listings nearest you.</p></div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WAITLIST -->
+  <!-- ============ WAITLIST ============ -->
   <section id="waitlist">
     <div class="container">
-      <div class="waitlist-card reveal">
-        <span class="eyebrow">Be first in line</span>
-        <h2>Join the ParkSpot waitlist</h2>
-        <p>Rolling out city by city, starting in Ljubljana.</p>
+      <div class="cta-card reveal">
+        <div class="cta-mesh" aria-hidden="true"></div>
+        <div class="cta-inner">
+          <h2>Be parked before you arrive.</h2>
+          <p>Join the waitlist and we'll let you know the moment ParkSpot opens on your street.</p>
 
-        <div class="role-toggle" id="roleToggle">
-          <button type="button" class="active" data-role="driver">I'm a Driver</button>
-          <button type="button" data-role="host">I'm a Host</button>
+          <div class="role-toggle" id="roleToggle">
+            <button type="button" class="active" data-role="driver">I need parking</button>
+            <button type="button" data-role="host">I have a space</button>
+          </div>
+
+          <form class="waitlist-form" id="waitlistForm" novalidate>
+            <label for="email" class="sr-only">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Get early access</button>
+          </form>
+
+          <p class="form-error" id="formError" role="alert" hidden></p>
+
+          <div class="waitlist-success" id="waitlistSuccess" hidden>
+            <span class="chip-icon chip-icon-ok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <span>You're on the list. We'll be in touch before launch.</span>
+          </div>
+
+          <p class="cta-note">Free to join &middot; No card needed &middot; Coming to iOS &amp; Android</p>
         </div>
-
-        <form class="waitlist-form" id="waitlistForm">
-          <label for="email" class="sr-only" style="position:absolute;left:-9999px;">Email address</label>
-          <input type="email" id="email" placeholder="you@example.com" required>
-          <button type="submit" class="btn btn-primary">Get Early Access</button>
-        </form>
-        <div class="waitlist-success" id="waitlistSuccess">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          You're on the list — see you in Ljubljana.
-        </div>
-
-        <p class="store-note">Coming soon to iOS &amp; Android</p>
       </div>
     </div>
   </section>
@@ -390,41 +496,42 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#top" class="brand">
+        <a href="#top" class="brand" aria-label="ParkSpot home">
           <span class="brand-mark">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 6.4 11.2 7.3 12.02a1 1 0 0 0 1.4 0C13.6 21.2 20 15.25 20 10c0-4.42-3.58-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+            <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#0C3B2E"/><g fill="none" stroke="#fff" stroke-width="10.8" stroke-linecap="round"><circle cx="50" cy="42" r="20"/><path d="M30 42V80"/></g><circle cx="50" cy="42" r="6.1" fill="#FFBA00"/></svg>
           </span>
-          ParkSpot
+          <span class="brand-word">Park<span>Spot</span></span>
         </a>
-        <p>The peer-to-peer parking marketplace. Find a spot, or turn yours into income.</p>
+        <p>Private parking, booked by the hour. Built in Ljubljana, for cities that ran out of kerb a long time ago.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <ul>
+          <li><a href="#how-it-works">How it works</a></li>
           <li><a href="#features">Features</a></li>
-          <li><a href="#hosts">For hosts</a></li>
-          <li><a href="#how-it-works">For drivers</a></li>
+          <li><a href="#screens">Inside the app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hosts</h4>
+        <ul>
+          <li><a href="#hosts">Earn as a host</a></li>
+          <li><a href="#faq">Host obligations</a></li>
+          <li><a href="#waitlist">List your space</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="#story">Our story</a></li>
-          <li><a href="#waitlist">Early access</a></li>
           <li><a href="mailto:hello@parkspot.app">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Privacy policy</a></li>
-          <li><a href="#">Terms of service</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#waitlist">Early access</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 ParkSpot. Made with care, starting in Ljubljana.</span>
-      <span>Built for drivers &amp; hosts everywhere.</span>
+      <span>&copy; 2026 ParkSpot</span>
+      <span>Ljubljana, Slovenia</span>
     </div>
   </div>
 </footer>
