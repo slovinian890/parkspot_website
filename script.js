@@ -36,6 +36,20 @@ const observer = new IntersectionObserver(
 );
 revealTargets.forEach((el) => observer.observe(el));
 
+// How-it-works: highlight whichever step is crossing the viewport center
+const steps = document.querySelectorAll('.step');
+if (steps.length) {
+  const stepObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('is-active', entry.isIntersecting);
+      });
+    },
+    { threshold: 0, rootMargin: '-45% 0px -45% 0px' }
+  );
+  steps.forEach((step) => stepObserver.observe(step));
+}
+
 // Waitlist role toggle
 const roleToggle = document.getElementById('roleToggle');
 if (roleToggle) {
@@ -45,6 +59,28 @@ if (roleToggle) {
       btn.classList.add('active');
     });
   });
+}
+
+// Subtle cursor-reactive phone tilt (desktop only, respects reduced motion)
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const heroVisual = document.getElementById('heroVisual');
+const phoneMockup = document.getElementById('phoneMockup');
+
+if (canHover && !prefersReducedMotion) {
+  if (heroVisual && phoneMockup) {
+    heroVisual.addEventListener('pointermove', (e) => {
+      const rect = heroVisual.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      phoneMockup.style.setProperty('--tilt-x', `${px * 7}deg`);
+      phoneMockup.style.setProperty('--tilt-y', `${-py * 7}deg`);
+    }, { passive: true });
+    heroVisual.addEventListener('pointerleave', () => {
+      phoneMockup.style.setProperty('--tilt-x', '0deg');
+      phoneMockup.style.setProperty('--tilt-y', '0deg');
+    });
+  }
 }
 
 // Waitlist form (front-end only — wire to a real backend before launch)
