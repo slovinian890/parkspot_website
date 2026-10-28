@@ -444,6 +444,84 @@ section { padding: clamp(76px, 8.5vw, 116px) 0; }
 .stat h3 { font-size: 16.5px; margin-bottom: 8px; }
 .stat p { font-size: 14.2px; color: var(--ink-2); line-height: 1.58; }
 
+/* ===== Promo video ===== */
+.demo-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+  background: linear-gradient(175deg, #243120 0%, #161F11 60%, #0F160A 100%);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: var(--r-xl);
+  padding: 72px 40px 84px;
+  box-shadow: var(--sh-lg), 0 0 100px -30px rgba(201, 162, 39, 0.3);
+}
+.demo-mesh {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(60% 55% at 50% 0%, rgba(232, 199, 103, 0.22) 0%, transparent 62%),
+    radial-gradient(70% 60% at 18% 100%, rgba(95, 174, 134, 0.22) 0%, transparent 65%),
+    radial-gradient(70% 60% at 82% 100%, rgba(201, 162, 39, 0.14) 0%, transparent 65%);
+}
+.demo-head { position: relative; z-index: 1; max-width: 620px; margin: 0 auto 36px; }
+.demo-head h2 { font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 16px; text-wrap: balance; }
+.demo-head p { font-size: 17px; color: var(--ink-2); line-height: 1.6; max-width: 480px; margin: 0 auto 28px; }
+.demo-visual { position: relative; z-index: 1; display: flex; justify-content: center; }
+
+/* shared frame for both the poster facade and the loaded player */
+.demo-play, .demo-video {
+  display: block;
+  width: min(430px, 82vw);
+  height: auto;
+  aspect-ratio: 9 / 16;
+  border-radius: 36px;
+  border: 1px solid rgba(244, 238, 220, 0.14);
+  background: var(--paper);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45), 0 60px 110px -20px rgba(0, 0, 0, 0.55), var(--glow-gold);
+}
+
+/* click-to-play facade: a poster image + button, no <video> in the DOM until pressed */
+.demo-play {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.demo-play:hover { transform: translateY(-3px); }
+.demo-poster {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.demo-play-icon {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(10, 13, 10, 0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--ink);
+  transition: background 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.demo-play:hover .demo-play-icon { background: var(--gold); color: var(--brand-dark); transform: translate(-50%, -50%) scale(1.06); }
+.demo-play-icon svg { width: 26px; height: 26px; margin-left: 3px; }
+.demo-duration {
+  position: absolute; left: 16px; bottom: 16px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 12.5px; font-weight: 650; letter-spacing: 0.01em;
+  color: var(--ink);
+  background: rgba(10, 13, 10, 0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.demo-video { object-fit: cover; }
+
 /* ===== Tabs (how it works) ===== */
 .tabs { max-width: 1000px; margin: 0 auto; }
 .tab-switch {
@@ -520,24 +598,31 @@ section { padding: clamp(76px, 8.5vw, 116px) 0; }
   gap: 44px;
   align-items: center;
   padding: 44px 48px;
-  background: linear-gradient(110deg, #2B3524 0%, #202A1B 70%);
+  background: radial-gradient(130% 170% at 32% 46%, #424F35 0%, #2B3524 48%, #1A2314 100%);
   border-color: rgba(201, 162, 39, 0.16);
 }
 .bento-banner .bento-copy { max-width: 470px; }
 .bento-banner h3 { font-size: 20px; margin-bottom: 11px; }
 .bento-banner p { font-size: 15px; }
+.bento-img-wrap {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+}
 .bento-banner img {
   width: 100%;
   max-width: 238px;
   height: auto;
-  justify-self: center;
   border-radius: 20px;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35)) drop-shadow(0 26px 44px rgba(0, 0, 0, 0.3));
 }
 /* second banner mirrors the first so the page alternates */
-.bento-flip { background: linear-gradient(250deg, #2A3326 0%, #202A1B 68%); }
+.bento-flip { background: radial-gradient(130% 170% at 36% 46%, #3F4C33 0%, #2A3326 48%, #1A2314 100%); }
 .bento-flip .bento-copy { order: 2; }
-.bento-flip img { order: 1; }
+.bento-flip .bento-img-wrap { order: 1; }
 
 .feat-icon {
   display: flex; align-items: center; justify-content: center;
@@ -818,6 +903,7 @@ footer::before {
   .hero-inner { padding: 56px 0 0 44px; gap: 20px; }
   .hero-copy { padding-bottom: 60px; }
   .host-card { padding: 44px; gap: 40px; }
+  .demo-card { padding: 56px 32px 64px; }
   .faq-layout { gap: 44px; }
 }
 
@@ -837,7 +923,7 @@ footer::before {
   .bento-banner { grid-template-columns: 1fr; gap: 30px; padding: 36px 30px; text-align: center; }
   .bento-banner .bento-copy { max-width: none; }
   .bento-banner .feat-icon { margin-inline: auto; }
-  .bento-banner img { max-width: 210px; order: 2; }
+  .bento-img-wrap { max-width: 210px; margin-inline: auto; order: 2; padding: 22px; }
   .bento-flip .bento-copy { order: 1; }
   .host-card { grid-template-columns: 1fr; }
   .faq-layout { grid-template-columns: 1fr; gap: 36px; }
@@ -863,6 +949,7 @@ footer::before {
   .chip-price { right: -10px; bottom: 18%; }
 
   .host-card { padding: 30px 22px; border-radius: 24px; }
+  .demo-card { padding: 30px 22px; border-radius: 24px; }
   .dash-card { padding: 20px; }
   .cta-inner { padding: 52px 22px 56px; }
   .cta-card { border-radius: 26px; }
@@ -876,7 +963,7 @@ footer::before {
 @media (max-width: 520px) {
   .bento { grid-template-columns: 1fr; }
   .bento-banner { padding: 30px 22px; }
-  .bento-banner img { max-width: 182px; }
+  .bento-img-wrap { max-width: 182px; padding: 18px; }
   .screens-grid { grid-template-columns: 1fr; max-width: 270px; margin-inline: auto; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .tab-switch { width: 100%; }

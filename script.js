@@ -169,6 +169,27 @@ if (roleToggle) {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveThumb);
 }
 
+/* ---------- Promo video (facade: no <video> in the DOM until pressed) ---------- */
+const demoPlay = document.getElementById('demoPlay');
+if (demoPlay) {
+  demoPlay.addEventListener('click', () => {
+    const video = document.createElement('video');
+    video.className = 'demo-video';
+    video.controls = true;
+    video.playsInline = true;
+    video.autoplay = true;
+    video.preload = 'auto';
+    video.setAttribute('width', '1080');
+    video.setAttribute('height', '1920');
+    video.innerHTML = `
+      <source src="assets/promo.webm" type="video/webm">
+      <source src="assets/promo.mp4" type="video/mp4">
+    `;
+    demoPlay.replaceWith(video);
+    video.play().catch(() => {});
+  });
+}
+
 /* ---------- Phone tilt ---------- */
 const heroVisual = document.getElementById('heroVisual');
 const phoneMockup = document.getElementById('phoneMockup');
