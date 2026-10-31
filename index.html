@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ParkSpot — Book a private parking spot before you arrive</title>
 <meta name="description" content="ParkSpot lets drivers book private driveways, garages and lots by the hour, and lets hosts earn from space that sits empty. Launching in Ljubljana.">
-<meta name="theme-color" content="#0E2A20">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230C3B2E'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='10.8' stroke-linecap='round'%3E%3Ccircle cx='50' cy='42' r='20'/%3E%3Cpath d='M30 42V80'/%3E%3C/g%3E%3Ccircle cx='50' cy='42' r='6.1' fill='%23C9A227'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0C3B2E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230C3B2E'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='10.8' stroke-linecap='round'%3E%3Ccircle cx='50' cy='42' r='20'/%3E%3Cpath d='M30 42V80'/%3E%3C/g%3E%3Ccircle cx='50' cy='42' r='6.1' fill='%23FFBA00'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,13 +14,47 @@
 </head>
 <body>
 
+<svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true">
+  <symbol id="map-illustration" viewBox="0 0 400 260">
+    <!-- sosednje države -->
+    <path d="M400 0 L400 95 L295 0 Z" fill="var(--map-neighbor)" opacity="0.6"/>
+    <!-- meja Slovenije -->
+    <line x1="295" y1="0" x2="400" y2="95" stroke="var(--bronze)" stroke-width="1.6" stroke-dasharray="5 4" opacity="0.55"/>
+    <!-- tla Slovenije -->
+    <path d="M0 0 H295 L400 95 V260 H0 Z" fill="var(--map-slovenia)" opacity="0.5"/>
+    <!-- reka -->
+    <path d="M-10 172 C 80 140, 140 212, 230 182 S 380 118, 420 148" stroke="var(--map-river)" stroke-width="14" fill="none" opacity="0.4" stroke-linecap="round"/>
+    <!-- parki -->
+    <rect x="36" y="36" width="72" height="50" rx="7" fill="var(--map-park)" opacity="0.32"/>
+    <rect x="238" y="152" width="62" height="46" rx="7" fill="var(--map-park)" opacity="0.32"/>
+    <!-- ceste -->
+    <line x1="0" y1="112" x2="400" y2="112" stroke="var(--ink)" stroke-width="1" opacity="0.08"/>
+    <line x1="150" y1="0" x2="150" y2="260" stroke="var(--ink)" stroke-width="1" opacity="0.08"/>
+    <line x1="262" y1="0" x2="262" y2="260" stroke="var(--ink)" stroke-width="1" opacity="0.08"/>
+    <!-- strehe starega mesta -->
+    <g fill="var(--map-roof)" opacity="0.42">
+      <rect x="150" y="30" width="26" height="22" rx="2"/>
+      <rect x="182" y="26" width="20" height="26" rx="2"/>
+      <rect x="150" y="60" width="22" height="20" rx="2"/>
+      <rect x="180" y="58" width="26" height="22" rx="2"/>
+      <rect x="320" y="122" width="24" height="20" rx="2"/>
+      <rect x="320" y="150" width="22" height="22" rx="2"/>
+      <rect x="58" y="150" width="24" height="20" rx="2"/>
+    </g>
+    <!-- parkirna mesta -->
+    <circle cx="192" cy="100" r="6" fill="var(--amber)"/>
+    <circle cx="332" cy="88" r="6" fill="var(--amber)"/>
+    <circle cx="92" cy="122" r="7" fill="var(--map-full)"/>
+  </symbol>
+</svg>
+
 <a href="#main" class="skip-link">Skip to content</a>
 
 <nav class="nav" id="nav">
   <div class="container nav-inner">
     <a href="#top" class="brand" aria-label="ParkSpot home">
       <span class="brand-mark">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#0C3B2E"/><g fill="none" stroke="#fff" stroke-width="10.8" stroke-linecap="round"><circle cx="50" cy="42" r="20"/><path d="M30 42V80"/></g><circle cx="50" cy="42" r="6.1" fill="#C9A227"/></svg>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#0C3B2E"/><g fill="none" stroke="#fff" stroke-width="10.8" stroke-linecap="round"><circle cx="50" cy="42" r="20"/><path d="M30 42V80"/></g><circle cx="50" cy="42" r="6.1" fill="#FFBA00"/></svg>
       </span>
       <span class="brand-word">Park<span>Spot</span></span>
     </a>
@@ -57,7 +91,9 @@
   <header class="hero">
     <div class="container">
       <div class="hero-card">
-        <div class="hero-mesh" aria-hidden="true"></div>
+        <div class="hero-mesh" aria-hidden="true">
+          <svg class="mesh-map mesh-map--hero" aria-hidden="true"><use href="#map-illustration"></use></svg>
+        </div>
 
         <div class="hero-inner">
           <div class="hero-copy">
@@ -110,7 +146,9 @@
   <section id="demo">
     <div class="container">
       <div class="demo-card reveal">
-        <div class="demo-mesh" aria-hidden="true"></div>
+        <div class="demo-mesh" aria-hidden="true">
+          <svg class="mesh-map mesh-map--demo" aria-hidden="true"><use href="#map-illustration"></use></svg>
+        </div>
         <div class="demo-head">
           <span class="eyebrow">See it in action</span>
           <h2>Thirty seconds, start to parked.</h2>
@@ -487,7 +525,9 @@
   <section id="waitlist">
     <div class="container">
       <div class="cta-card reveal">
-        <div class="cta-mesh" aria-hidden="true"></div>
+        <div class="cta-mesh" aria-hidden="true">
+          <svg class="mesh-map mesh-map--cta" aria-hidden="true"><use href="#map-illustration"></use></svg>
+        </div>
         <div class="cta-inner">
           <h2>Be parked before you arrive.</h2>
           <p>Join the waitlist and we'll let you know the moment ParkSpot opens on your street.</p>
@@ -526,7 +566,7 @@
       <div class="footer-brand">
         <a href="#top" class="brand" aria-label="ParkSpot home">
           <span class="brand-mark">
-            <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#0C3B2E"/><g fill="none" stroke="#fff" stroke-width="10.8" stroke-linecap="round"><circle cx="50" cy="42" r="20"/><path d="M30 42V80"/></g><circle cx="50" cy="42" r="6.1" fill="#C9A227"/></svg>
+            <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#0C3B2E"/><g fill="none" stroke="#fff" stroke-width="10.8" stroke-linecap="round"><circle cx="50" cy="42" r="20"/><path d="M30 42V80"/></g><circle cx="50" cy="42" r="6.1" fill="#FFBA00"/></svg>
           </span>
           <span class="brand-word">Park<span>Spot</span></span>
         </a>
