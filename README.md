@@ -52,7 +52,7 @@ gates. ParkSpot opens those gates.
    space in advance."
 2. Make the problem feel expensive (time lost circling).
 3. Serve two different audiences without confusing either — handled with a
-   tabbed How-it-works and a dedicated host section.
+   tabbed How-it-works and a side-by-side find/earn split (`#demo`).
 4. Answer the objections that stop a signup: is my car safe, what if the space
    isn't there, what does it really cost.
 5. Capture an email, tagged driver or host.
@@ -62,16 +62,18 @@ gates. ParkSpot opens those gates.
 ## Page structure
 
 Sections in document order. Nav links to `#how-it-works`, `#features`,
-`#hosts`, `#faq`.
+`#hosts`, `#faq`. `#hosts` is not its own section — it's anchored to the host
+card inside `#demo` (see below), kept so existing nav/footer links still land
+somewhere sensible.
 
 | Section | id | Purpose |
 |---|---|---|
 | Hero | — | Positioning line, both CTAs, waitlist proof, app screenshot with floating UI chips |
+| Find / earn split | `#demo` | Driver and host side by side, each with its own click-to-play demo video. The host card (`#hosts`) adds three screenshots from the video (price, bookings, earnings) as a mini step-through — this is the only host pitch on the page; there's no separate dashboard section anymore. |
 | Problem + stats | `#why` | Frames circling as a cost. Three stat cards. |
 | How it works | `#how-it-works` | Tabbed: "I need parking" / "I have a space", three steps each |
 | Features | `#features` | Two full-width banners with screenshots + four short cards. Each card names an annoyance it removes. |
 | Inside the app | `#screens` | Four screenshots in the app's own bottom-nav order: Bookings, Host, Messages, Profile |
-| Earn as a host | `#hosts` | Host pitch plus an illustrative earnings dashboard |
 | FAQ | `#faq` | Seven objection-handling answers, one-open-at-a-time accordion |
 | Waitlist | `#waitlist` | Driver/host toggle, email capture |
 | Footer | — | Navigation and contact |
@@ -160,6 +162,14 @@ market is Ljubljana. Either reshoot it or change the copy.
 
 **`assets/phone.glb` is unused** and is 5.2 MB of the 7.3 MB assets folder. It
 was used by an earlier 3D version of the hero. Delete it unless it's coming back.
+
+**`assets/promo-host-earnings.mp4` is 33 MB, uncompressed.** It's the host-side
+video in the `#demo` split section, lazy and click-to-play so it doesn't touch
+initial load, but at roughly 9 Mbps it's about 4–5x the bitrate of the driver
+promo (`assets/promo.mp4`, 7.6 MB for a similar 30s clip). No `ffmpeg` was
+available in this environment to re-encode it — run it through Handbrake or
+ffmpeg (`-c:v libx264 -crf 23` or a VP9 `.webm`, matching `promo.webm`'s
+pattern) before this goes live.
 
 **No testimonials section exists.** It was left out rather than filled with
 invented quotes. It drops in after the FAQ once there are real ones. Same reason

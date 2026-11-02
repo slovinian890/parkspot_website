@@ -7,6 +7,42 @@ const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
+/* ---------- Scroll progress + parallax (combined, rAF-throttled) ---------- */
+const scrollProgress = document.getElementById('scrollProgress');
+const parallaxEls = Array.from(document.querySelectorAll('[data-parallax]'));
+
+if (scrollProgress || parallaxEls.length) {
+  let scrollTicking = false;
+
+  const updateOnScroll = () => {
+    if (scrollProgress) {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? Math.min(Math.max(window.scrollY / scrollable, 0), 1) : 0;
+      scrollProgress.style.transform = `scaleX(${progress})`;
+    }
+    if (parallaxEls.length && !reducedMotion) {
+      const vh = window.innerHeight;
+      parallaxEls.forEach((el) => {
+        const speed = parseFloat(el.dataset.parallax) || 0.08;
+        const rect = el.getBoundingClientRect();
+        const offset = (rect.top + rect.height / 2 - vh / 2) * speed;
+        el.style.transform = `translateY(${offset.toFixed(2)}px)`;
+      });
+    }
+    scrollTicking = false;
+  };
+
+  const queueScrollUpdate = () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(updateOnScroll);
+  };
+
+  updateOnScroll();
+  window.addEventListener('scroll', queueScrollUpdate, { passive: true });
+  window.addEventListener('resize', queueScrollUpdate, { passive: true });
+}
+
 /* ---------- Mobile menu ---------- */
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -42,23 +78,7 @@ const revealObserver = new IntersectionObserver(
   },
   { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
 );
-document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => revealObserver.observe(el));
-
-/* ---------- Bar charts grow once in view ---------- */
-const barGroups = document.querySelectorAll('.bars');
-if (barGroups.length) {
-  const barObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        barObserver.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.4 }
-  );
-  barGroups.forEach((el) => barObserver.observe(el));
-}
+document.querySelectorAll('.reveal, .reveal-stagger, .reveal-left, .reveal-right').forEach((el) => revealObserver.observe(el));
 
 /* ---------- Count figures up ---------- */
 const runCounter = (el) => {
@@ -169,10 +189,10 @@ if (roleToggle) {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveThumb);
 }
 
-/* ---------- Promo video (facade: no <video> in the DOM until pressed) ---------- */
-const demoPlay = document.getElementById('demoPlay');
-if (demoPlay) {
+/* ---------- Promo videos (facade: no <video> in the DOM until pressed) ---------- */
+document.querySelectorAll('.demo-play').forEach((demoPlay) => {
   demoPlay.addEventListener('click', () => {
+    const { videoMp4, videoWebm } = demoPlay.dataset;
     const video = document.createElement('video');
     video.className = 'demo-video';
     video.controls = true;
@@ -182,13 +202,13 @@ if (demoPlay) {
     video.setAttribute('width', '1080');
     video.setAttribute('height', '1920');
     video.innerHTML = `
-      <source src="assets/promo.webm" type="video/webm">
-      <source src="assets/promo.mp4" type="video/mp4">
+      ${videoWebm ? `<source src="${videoWebm}" type="video/webm">` : ''}
+      <source src="${videoMp4}" type="video/mp4">
     `;
     demoPlay.replaceWith(video);
     video.play().catch(() => {});
   });
-}
+});
 
 /* ---------- Phone tilt ---------- */
 const heroVisual = document.getElementById('heroVisual');
